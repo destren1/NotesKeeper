@@ -1,12 +1,11 @@
-import { Button, Input } from '@/components/ui';
+import { Button, Input } from "@/components/ui";
+import { FieldErrors, UseFormRegister } from "react-hook-form";
+import { NoteFormData } from "../client/components/note-form-client";
 
 interface NoteFormUIProps {
-  register: any;
-  errors: {
-    title?: { message?: string };
-    description?: { message?: string };
-  };
-  handleSubmit: (e: React.FormEvent) => void;
+  register: UseFormRegister<NoteFormData>;
+  errors: FieldErrors<NoteFormData>;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export function NoteFormUI({

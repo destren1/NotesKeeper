@@ -6,7 +6,7 @@ import { addNote } from '@/lib/slices/notesSlice';
 import { v4 as uuidv4 } from 'uuid';
 import { NoteFormUI } from '@/components/ui';
 
-interface NoteFormData {
+export interface NoteFormData {
   title: string;
   description: string;
 }
