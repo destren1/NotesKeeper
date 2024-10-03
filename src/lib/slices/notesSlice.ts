@@ -1,26 +1,31 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User } from '@/types';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Note } from "@/types";
 
-interface UserState {
-  user: User | null;
+interface NotesState {
+  notes: Note[];
 }
 
-const initialState: UserState = {
-  user: null,
+const initialState: NotesState = {
+  notes: [],
 };
 
-export const userSlice = createSlice({
-  name: 'user',
+export const notesSlice = createSlice({
+  name: "notes",
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<User>) => {
-      state.user = action.payload;
+    addNote: (state, action: PayloadAction<Note>) => {
+      state.notes.push(action.payload);
     },
-    clearUser: (state) => {
-      state.user = null;
+    updateNote: (state, action: PayloadAction<Note>) => {
+      const index = state.notes.findIndex(
+        (note) => note.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.notes[index] = action.payload;
+      }
     },
   },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
-export default userSlice.reducer;
+export const { addNote, updateNote } = notesSlice.actions;
+export default notesSlice.reducer;

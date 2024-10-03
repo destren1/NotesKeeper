@@ -1,101 +1,101 @@
-import Image from "next/image";
+'use client'
+import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import { RootState } from '../lib/store';
+import { BookOpen } from 'lucide-react';
 
-export default function Home() {
+export default function HomePage() {
+  const user = useSelector((state: RootState) => state.user.user);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center">
+          <div className="flex justify-center mb-6">
+            <BookOpen className="h-16 w-16 text-blue-500" />
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Добро пожаловать в NotesKeeper
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            Ваше персональное пространство для организации мыслей, идей и воспоминаний.
+          </p>
+          
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                Почему выбрать NotesKeeper?
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="text-left">
+                  <h3 className="font-medium text-gray-900 mb-2">✨ Простой и удобный</h3>
+                  <p className="text-gray-600">Интуитивно понятный интерфейс для легкого управления заметками</p>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-medium text-gray-900 mb-2">🔒 Безопасный</h3>
+                  <p className="text-gray-600">Ваши заметки остаются приватными и защищёнными</p>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-medium text-gray-900 mb-2">📱 Доступный</h3>
+                  <p className="text-gray-600">Доступ к заметкам с любого устройства в любое время</p>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-medium text-gray-900 mb-2">🚀 Бесплатный</h3>
+                  <p className="text-gray-600">Организуйте свои мысли без лишних затрат</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          {user ? (
+            <Link 
+              href="/profile" 
+              className="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Перейти к вашим заметкам
+            </Link>
+          ) : (
+            <div className="space-x-4">
+              <Link 
+                href="/register" 
+                className="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                Зарегистрироваться
+              </Link>
+            </div>
+          )}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="mt-16">
+          <h2 className="text-2xl font-semibold text-center text-gray-800 mb-8">
+            Как это работает
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">1</span>
+              </div>
+              <h3 className="font-medium text-gray-900 mb-2">Зарегистрируйтесь</h3>
+              <p className="text-gray-600">Создайте бесплатный аккаунт за несколько секунд</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">2</span>
+              </div>
+              <h3 className="font-medium text-gray-900 mb-2">Создавайте заметки</h3>
+              <p className="text-gray-600">Добавляйте свои мысли и идеи</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">3</span>
+              </div>
+              <h3 className="font-medium text-gray-900 mb-2">Организуйте</h3>
+              <p className="text-gray-600">Держите ваши заметки в порядке и всегда под рукой</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
+
