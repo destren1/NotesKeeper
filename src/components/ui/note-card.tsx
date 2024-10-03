@@ -53,7 +53,7 @@ export function NoteCardUI({
             })}
             label="Title"
             error={errors.title?.message}
-            value={editedTitle} // переместил value здесь
+            value={editedTitle}
           />
           <div className="space-y-2">
             <label className="text-sm font-medium">Описание</label>
