@@ -10,12 +10,12 @@ import { RegisterPageUI } from "@/components/pages-ui";
 
 const schema = yup
   .object({
-    username: yup.string().required("Username is required"),
-    email: yup.string().email("Invalid email").required("Email is required"),
+    username: yup.string().required("Имя пользователя обязательно"),
+    email: yup.string().email("Неверный email").required("Email обязателен"),
     password: yup
       .string()
-      .min(6, "Password must be at least 6 characters")
-      .required("Password is required"),
+      .min(6, "Пароль должен содержать как минимум 6 символов")
+      .required("Пароль обязателен"),
   })
   .required();
 

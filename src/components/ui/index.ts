@@ -7,3 +7,7 @@ export { Input } from "./input";
 export { Button } from "./button";
 export { NoteCardUI } from './note-card'
 export { NoteFormUI } from './note-form'
+export { IconHeading } from './icon-heading'
+export { FeatureCard } from './feature-card'
+export { StepsSection } from './steps-section'
+export { LinkButton } from './link-button'
