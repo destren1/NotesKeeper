@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NotesKeeper
 
-## Getting Started
+![NotesKeeper Demo](/public/NotesKeeper2.gif)
 
-First, run the development server:
+## Описание проекта
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+NotesKeeper — это простое веб-приложение, разработанное с использованием **Next.js**, **Redux**, и **react-hook-form**. Оно позволяет пользователям регистрироваться и добавлять записи в свой личный кабинет. После регистрации пользователи могут видеть свои данные и управлять записями.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Основные функции:
+- **Регистрация пользователя**: Пользователи могут регистрироваться, вводя имя пользователя, email и пароль.
+- **Личный кабинет**: После успешной регистрации пользователи перенаправляются на страницу профиля, где отображаются их данные и записи.
+- **Добавление и редактирование записей**: Пользователи могут добавлять записи с названием и описанием, а также редактировать их позже.
+- **Управление состоянием с помощью Redux**: Данные пользователей и записи хранятся в глобальном Redux store.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Установка
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Для запуска проекта следуйте следующим шагам:
 
-## Learn More
+1. **Клонируйте репозиторий**:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/your_username/NotesKeeper.git
+   cd NotesKeeper
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Установите зависимости**:
+- npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Запустите локальный сервер разработки**:
+- npm run dev
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Откройте http://localhost:3000 в вашем браузере, чтобы увидеть приложение**:
