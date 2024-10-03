@@ -1,32 +1,21 @@
-// src/components/notes/NoteForm.tsx
-'use client'
+import { Button, Input } from '@/components/ui';
 
-import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { addNote } from '@/lib/slices/notesSlice';
-import { Button } from '@/components/ui';
-import { Input } from '@/components/ui';
-import { v4 as uuidv4 } from 'uuid';
-
-interface NoteFormData {
-  title: string;
-  description: string;
+interface NoteFormUIProps {
+  register: any;
+  errors: {
+    title?: { message?: string };
+    description?: { message?: string };
+  };
+  handleSubmit: (e: React.FormEvent) => void;
 }
 
-export function NoteForm() {
-  const dispatch = useDispatch();
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<NoteFormData>();
-
-  const onSubmit = (data: NoteFormData) => {
-    dispatch(addNote({
-      id: uuidv4(),
-      ...data,
-    }));
-    reset();
-  };
-
+export function NoteFormUI({
+  register,
+  errors,
+  handleSubmit,
+}: NoteFormUIProps) {
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <Input
         label="Заголовок"
         {...register("title", { required: "Заголовок обязателен" })}
@@ -36,7 +25,7 @@ export function NoteForm() {
         <label className="text-sm font-medium">Описание</label>
         <textarea
           {...register("description", { required: "Описание обязательно" })}
-          className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          className="flex w-full rounded-md border border-input bg-white border-black px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           rows={4}
         />
         {errors.description && (

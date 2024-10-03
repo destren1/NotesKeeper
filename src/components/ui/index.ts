@@ -5,5 +5,5 @@ export { CardDescription } from './card'
 export { CardContent } from './card'
 export { Input } from "./input";
 export { Button } from "./button";
-export { NoteCard } from './note-card'
-export { NoteForm } from './note-form'
+export { NoteCardUI } from './note-card'
+export { NoteFormUI } from './note-form'

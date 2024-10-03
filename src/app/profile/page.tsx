@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
-import { NoteForm } from "@/components/ui";
-import { NoteCard } from "@/components/ui";
+import { NoteForm } from "@/components/client/components";
+import { NoteCard } from "@/components/client/components";
 
 export default function ProfilePage() {
   const router = useRouter();
